@@ -1,0 +1,10 @@
+[
+ {
+  "InstFile" : "C:/FPGA/ders_27_03_2023/src/counter_clk.v",
+  "InstLine" : 1,
+  "InstName" : "led",
+  "ModuleFile" : "C:/FPGA/ders_27_03_2023/src/counter_clk.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "led"
+ }
+]

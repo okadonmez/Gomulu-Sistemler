@@ -1,0 +1,11 @@
+-d C:\FPGA\ders_27_03_2023\impl\gwsynthesis\ders_27_03_2023.vg
+-p GW1NZ-1-QFN48-6
+-pn GW1NZ-LV1QN48C6/I5
+-cst C:\FPGA\ders_27_03_2023\src\ders_27_03_2023.cst
+-cfg C:\FPGA\ders_27_03_2023\impl\pnr\device.cfg
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-route_maxfan 10

@@ -1,0 +1,68 @@
+//
+//Written by GowinSynthesis
+//Product Version "GowinSynthesis V1.9.8.10"
+//Sat Apr 01 23:35:25 2023
+
+//Source file index table:
+//file0 "\C:/FPGA/ders_20_03_2023/src/led_yakma.v"
+`timescale 100 ps/100 ps
+module led (
+  ledler,
+  buton1,
+  buton2
+)
+;
+output [1:3] ledler;
+input buton1;
+input buton2;
+wire buton1_d;
+wire buton2_d;
+wire ledler_1_12;
+wire ledler_3_14;
+wire ledler_2_13;
+wire VCC;
+wire GND;
+  IBUF buton1_ibuf (
+    .O(buton1_d),
+    .I(buton1) 
+);
+  IBUF buton2_ibuf (
+    .O(buton2_d),
+    .I(buton2) 
+);
+  OBUF ledler_1_obuf (
+    .O(ledler[1]),
+    .I(ledler_1_12) 
+);
+  OBUF ledler_2_obuf (
+    .O(ledler[2]),
+    .I(ledler_2_13) 
+);
+  OBUF ledler_3_obuf (
+    .O(ledler[3]),
+    .I(ledler_3_14) 
+);
+  LUT2 ledler_1_s8 (
+    .F(ledler_1_12),
+    .I0(buton1_d),
+    .I1(buton2_d) 
+);
+defparam ledler_1_s8.INIT=4'h6;
+  INV ledler_3_s8 (
+    .O(ledler_3_14),
+    .I(buton2_d) 
+);
+  INV ledler_2_s8 (
+    .O(ledler_2_13),
+    .I(buton1_d) 
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* led */

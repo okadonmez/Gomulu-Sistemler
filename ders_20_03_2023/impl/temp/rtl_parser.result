@@ -1,0 +1,10 @@
+[
+ {
+  "InstFile" : "C:/FPGA/ders_20_03_2023/src/led_yakma.v",
+  "InstLine" : 1,
+  "InstName" : "led",
+  "ModuleFile" : "C:/FPGA/ders_20_03_2023/src/led_yakma.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "led"
+ }
+]

@@ -1,0 +1,62 @@
+//
+//Written by GowinSynthesis
+//Product Version "GowinSynthesis V1.9.8.10"
+//Sun Apr 02 01:44:26 2023
+
+//Source file index table:
+//file0 "\C:/FPGA/ders_13_03_2023/src/ders1.v"
+`timescale 100 ps/100 ps
+module ders (
+  red,
+  green,
+  blue,
+  a,
+  b
+)
+;
+output red;
+output green;
+output blue;
+input a;
+input b;
+wire red_d;
+wire green_d;
+wire blue_d;
+wire VCC;
+wire GND;
+  IBUF a_ibuf (
+    .O(red_d),
+    .I(a) 
+);
+  IBUF b_ibuf (
+    .O(green_d),
+    .I(b) 
+);
+  OBUF red_obuf (
+    .O(red),
+    .I(red_d) 
+);
+  OBUF green_obuf (
+    .O(green),
+    .I(green_d) 
+);
+  OBUF blue_obuf (
+    .O(blue),
+    .I(blue_d) 
+);
+  LUT2 blue_d_s (
+    .F(blue_d),
+    .I0(red_d),
+    .I1(green_d) 
+);
+defparam blue_d_s.INIT=4'h8;
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* ders */
