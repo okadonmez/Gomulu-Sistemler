@@ -1,0 +1,128 @@
+module saat 
+ # (
+    parameter IKI_SANIYE = 26'd48_000_000, 
+    parameter BIR_SANIYE = 26'd24_000_000,
+    parameter SIFIRLA = 26'd0
+   )
+
+   (
+    input sys_clk,
+    input button_1,
+    input button_2,
+    output reg[2:0] led,
+    output reg[3:0] digit, //kablolar GND ucuna baglanacak
+    output reg[7:0] karakter// kablolar normal ucuna
+   );
+
+reg [26:0] counter;
+
+reg durum;
+
+reg [7:0] rakam [0:9];
+
+reg [7:0] i = 0;
+
+always @* begin
+    rakam[0] <= 8'b00111111; // 0
+    rakam[1] <= 8'b00000110; // 1
+    rakam[2] <= 8'b01011011; // 2
+    rakam[3] <= 8'b01001111; // 3
+    rakam[4] <= 8'b01100110; // 4
+    rakam[5] <= 8'b01101101; // 5
+    rakam[6] <= 8'b01111101; // 6
+    rakam[7] <= 8'b00000111; // 7
+    rakam[8] <= 8'b01111111; // 8
+    rakam[9] <= 8'b01101111; // 9
+end
+
+always @(posedge sys_clk) begin
+    if(durum) 
+        counter <= counter;
+    else if(!durum && counter < IKI_SANIYE)
+        counter <= counter + 1;
+    else begin
+        counter <= SIFIRLA;
+        i <= i + 1;
+    end
+
+    if(i > 9) 
+        i <= 0;
+end
+
+always @(posedge sys_clk) begin
+    if(durum)  
+        led[2:0] <= 3'b010; 
+    else if(!durum && counter < BIR_SANIYE) begin 
+        led[2:0] <= 3'b111;
+    end 
+    else if(!durum && counter > BIR_SANIYE && counter < IKI_SANIYE) begin 
+        led[2:0] <= 3'b000; 
+    end
+end
+
+always @(posedge sys_clk) begin
+    digit <= 4'b0000;
+
+    karakter <= rakam[i];
+end
+
+always @(button_1) begin
+    if(!button_1)
+        durum <= ~durum;
+end
+
+endmodule
+
+/*
+    karakter <= 8'b00111111; // 0
+    karakter <= 8'b00000110; // 1
+    karakter <= 8'b01011011; // 2
+    karakter <= 8'b01001111; // 3
+    karakter <= 8'b01100110; // 4
+    karakter <= 8'b01101101; // 5
+    karakter <= 8'b01111101; // 6
+    karakter <= 8'b00000111; // 7
+    karakter <= 8'b01111111; // 8
+    karakter <= 8'b01101111; // 9
+*/
+
+
+/*
+module led
+ # (parameter ON_SANIYE = 48'd240_000_000, 
+    parameter BES_SANIYE = 48'd120_000_000, 
+    parameter IKI_SANIYE = 48'd48_000_000, 
+    parameter SIFIRLA = 48'd0
+   )
+   
+   (input sys_clk, // Clock sinyali
+    input sys_rst_n, // Reset butonu
+    output reg[2:0] led // 110 Red, 101 Blue, 011 Green 
+   );
+
+reg [48:0] counter;
+
+always @(posedge sys_clk or negedge sys_rst_n) begin
+    if(!sys_rst_n)
+        counter <= SIFIRLA;
+    else if(counter < ON_SANIYE + IKI_SANIYE + BES_SANIYE)
+        counter <= counter + 1;
+    else
+        counter <= SIFIRLA;
+end
+
+always @(posedge sys_clk or negedge sys_rst_n) begin
+    if(!sys_rst_n)
+        led <= 3'b000;
+    else if(counter < ON_SANIYE)
+        led[2:0] <= 3'b110;
+    else if(counter == ON_SANIYE)
+        led[2:0] <= {led[1:0], led[2]};
+    else if(counter == ON_SANIYE + IKI_SANIYE)
+        led[2:0] <= {led[1:0], led[2]};
+    else if(counter == ON_SANIYE + IKI_SANIYE + BES_SANIYE)
+        led <= 3'b110;
+end
+
+endmodule
+*/
