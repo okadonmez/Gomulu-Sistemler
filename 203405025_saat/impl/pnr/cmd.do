@@ -1,0 +1,11 @@
+-d C:\FPGA\203405025_saat\impl\gwsynthesis\203405025_saat.vg
+-p GW1NZ-1-QFN48-6
+-pn GW1NZ-LV1QN48C6/I5
+-cst C:\FPGA\203405025_saat\src\203405025_saat.cst
+-cfg C:\FPGA\203405025_saat\impl\pnr\device.cfg
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-route_maxfan 10

@@ -1,0 +1,16 @@
+{
+ "Files" : [
+  {
+   "Path" : "C:/FPGA/203405025_saat/src/saat_verilog.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/FPGA/203405025_saat/impl/temp/rtl_parser.result",
+ "Top" : "",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

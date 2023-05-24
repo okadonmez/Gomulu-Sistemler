@@ -1,0 +1,44 @@
+//Copyright (C)2014-2022 Gowin Semiconductor Corporation.
+//All rights reserved. 
+//File Title: Physical Constraints file
+//GOWIN Version: 1.9.8.10
+//Part Number: GW1NZ-LV1QN48C6/I5
+//Device: GW1NZ-1
+//Created Time: Tue 05 16 14:33:49 2023
+
+IO_LOC "digit[3]" 19;
+IO_PORT "digit[3]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "digit[2]" 17;
+IO_PORT "digit[2]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "digit[1]" 16;
+IO_PORT "digit[1]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "digit[0]" 18;
+IO_PORT "digit[0]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "segment[7]" 41;
+IO_PORT "segment[7]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "segment[6]" 40;
+IO_PORT "segment[6]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "segment[5]" 39;
+IO_PORT "segment[5]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "segment[4]" 38;
+IO_PORT "segment[4]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "segment[3]" 35;
+IO_PORT "segment[3]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "segment[2]" 34;
+IO_PORT "segment[2]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "segment[1]" 23;
+IO_PORT "segment[1]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "segment[0]" 20;
+IO_PORT "segment[0]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "led[2]" 11;
+IO_PORT "led[2]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "led[1]" 10;
+IO_PORT "led[1]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "led[0]" 9;
+IO_PORT "led[0]" PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
+IO_LOC "button_2" 44;
+IO_PORT "button_2" PULL_MODE=UP BANK_VCCIO=1.8;
+IO_LOC "button_1" 13;
+IO_PORT "button_1" PULL_MODE=UP BANK_VCCIO=1.8;
+IO_LOC "sys_clk" 47;
+IO_PORT "sys_clk" PULL_MODE=UP BANK_VCCIO=1.8;
