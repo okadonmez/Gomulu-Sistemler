@@ -1,0 +1,10 @@
+[
+ {
+  "InstFile" : "C:/FPGA/203405025_trafik_sinyalizasyonu/src/trafik_sinyalizasyonu.v",
+  "InstLine" : 1,
+  "InstName" : "led",
+  "ModuleFile" : "C:/FPGA/203405025_trafik_sinyalizasyonu/src/trafik_sinyalizasyonu.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "led"
+ }
+]
